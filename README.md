@@ -11,4 +11,10 @@ Project was built during the 2018 SPARC Hackathon in Bethesda, MD.
 
 Project team:
 Karl G. Helmer (MGH)
+Maria Jimenez-Gonzalez (Mount Sinai)
+Rosemary Li (Mount Sinai)
+Larry Miller (Feinstein Institute)
+Kendall Morris (University of South Florida) 
+Alison Moss (Thomas Jefferson University)
+Anil Vegesna (Feinstein Institute)
 
