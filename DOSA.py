@@ -4,14 +4,13 @@ or an annotated dataset and find similar data on the Blackfynn
 SPARC portal
 Author: Karl G. Helmer
 Institution: Massachusetts General Hospital
-Date: 2018-12-06
+Date: 2018-12-06/07
 
-Note that renaming of a model only renames the display name, but
-the internal name stays the same.
-Jefferson - experiment = animal
-Mt Sinai - experiment = mount_sinai
+Note that renaming of a model in Blackfynn app only renames the 
+display name, but the internal name stays the same.
+Thomas Jefferson - experiment = animal
+Mount Sinai - experiment = mount_sinai
 Northwell - experiment = experiment
-
 '''
 
 import json, sys
@@ -60,6 +59,8 @@ temp = {}
 
 print "Overlap percentage with relevant datasets:"
 
+#now figure out the overlap between the terms in the selected file
+# and the terms in the relevant model files and print
 for key in propsDict.keys():
     counter = 0
     for c in cleanLocal:
