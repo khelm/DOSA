@@ -25,12 +25,28 @@ def read_json(fileName):
 #This function reads a set of annotation terms from a file
 #The file is in the format one term per line.
 def read_terms(termFileName):
+    relFlag = 0
+    claFlag = 0
+    clas = []
+    rels = []
 
     with open(termFileName, 'r') as t:
         terms = t.readlines()
         cleanTerms = [term.strip() for term in terms]
 
-    return cleanTerms
+    for ct in cleanTerms:
+        rels.append(ct)
+        if ct == "classes":
+            claFlag=1
+        if claFlag == 1:
+            clas.append(ct)
+
+    del rels[0]
+    del rels[-1]
+    del clas[0]
+    relsClean = rels[:len(rels)-len(clas)]
+
+    return relsClean, clas
 
 
 def select_file():

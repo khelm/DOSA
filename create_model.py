@@ -18,8 +18,9 @@ from utils import select_file, read_terms, read_json
 # select associated terms file
 termsFilePath = select_file()
 
-# open terms file and import
-termsList = read_terms(termsFilePath)
+# open terms file and import relationships and classes
+rels, clas = read_terms(termsFilePath)
+print rels, clas
 
 # query blackfynn portal for properties
 # set the blackfynn object to a specific organization ('SPARC Consortium')
@@ -53,12 +54,16 @@ except:
     print "Requested model not available"
     sys.exit()
 
-# now add each term from the termsList as a new property in the model
-for i, term in enumerate(termsList):
+# now add each term from the classes list as a new property in the model
+for i, term in enumerate(clas):
     if i == 0:
         model.add_property(term, title=True)
     else:
         model.add_property(term)
+
+# now add each relationship (which are owl datatype/object properties)
+for r in rels:
+    ds.create_relationship_type(r, 'none')
 
 ds.update
 
